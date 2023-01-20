@@ -16,7 +16,7 @@ import org.ssb.trainrootmanagement.model.LoginDetails;
 import org.ssb.trainrootmanagement.model.Route;
 import org.ssb.trainrootmanagement.model.RouteDetails;
 import org.ssb.trainrootmanagement.model.Station;
-import org.ssb.trainrootmanagement.model.Train;
+import org.ssb.trainrootmanagement.model.Trains;
 import org.ssb.trainrootmanagement.service.RouteDetailsService;
 import org.ssb.trainrootmanagement.service.RouteService;
 import org.ssb.trainrootmanagement.service.StationService;
@@ -52,7 +52,7 @@ public class UserController {
     
 //train details
     @GetMapping(value = "/traindetails-get")
-    public List<Train> getAllDetails() {
+    public List<Trains> getAllDetails() {
         return trainService.getAll();
     }
 

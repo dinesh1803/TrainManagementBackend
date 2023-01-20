@@ -28,13 +28,12 @@ public class RouteDetails {
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Train train;
+    private Trains train;
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Station station;
 
-    @JsonFormat(pattern = "HH:mm:ss")
-    private Time scheduleTime;
+    private String scheduleTime;
 
 }

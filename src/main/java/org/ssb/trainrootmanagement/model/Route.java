@@ -38,6 +38,6 @@ public class Route {
 
   @OneToMany(mappedBy = "route")
   @JsonIgnore
-  private List<Train> train;
+  private List<Trains> train;
 
 }

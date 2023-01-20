@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.ssb.trainrootmanagement.model.Train;
+import org.ssb.trainrootmanagement.model.Trains;
 import org.ssb.trainrootmanagement.repository.TrainRepo;
 
 @Service
@@ -14,25 +14,25 @@ public class TrainService {
     @Autowired
     private TrainRepo trainRepo;
 
-    public Train save(Train train) {
+    public Trains save(Trains train) {
         return trainRepo.save(train);
     }
 
-    public List<Train> getAll() {
+    public List<Trains> getAll() {
         return trainRepo.findAll();
     }
 
-    public List<Train> deleteById(int id) {
+    public List<Trains> deleteById(int id) {
         trainRepo.deleteById(id);
         return getAll();
 
     }
 
-    public Train updateById(int id, Train train) {
-        Optional<Train> trainId = trainRepo.findById(id);
+    public Trains updateById(int id, Trains train) {
+        Optional<Trains> trainId = trainRepo.findById(id);
 
         if (trainId.isPresent()) {
-            Train trainUpdate = trainId.get();
+            Trains trainUpdate = trainId.get();
             trainUpdate.setTrainNumber(train.getTrainNumber());
             trainUpdate.setTrainName(train.getTrainName());
 
@@ -42,5 +42,11 @@ public class TrainService {
         }
 
     }
+
+    public List<Trains> getBySourceAndDest(String source, String dest) {
+        return trainRepo.findBySourceAndDest(source, dest);
+    }
+
+
 
 }

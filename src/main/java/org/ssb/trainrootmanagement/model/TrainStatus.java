@@ -29,7 +29,7 @@ public class TrainStatus {
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Train train;
+    private Trains train;
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)

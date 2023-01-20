@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.ssb.trainrootmanagement.model.Route;
 import org.ssb.trainrootmanagement.model.RouteDetails;
 import org.ssb.trainrootmanagement.model.Station;
-import org.ssb.trainrootmanagement.model.Train;
+import org.ssb.trainrootmanagement.model.Trains;
 import org.ssb.trainrootmanagement.model.LoginDetails;
 import org.ssb.trainrootmanagement.model.TrainStatus;
 import org.ssb.trainrootmanagement.service.UserService;
@@ -45,24 +45,29 @@ public class AdminController {
 
     // By Train
     @PostMapping(value = "/traindetails/post")
-    public Train saveTrains(@RequestBody Train train) {
+    public Trains saveTrains(@RequestBody Trains train) {
 
         return trainService.save(train);
     }
 
     @GetMapping(value = "/traindetails/get")
-    public List<Train> getAllDetails() {
+    public List<Trains> getAllDetails() {
         return trainService.getAll();
     }
 
     @DeleteMapping(value = "/traindetails/delete/{id}")
-    public List<Train> deleteById(@PathVariable("id") int id) {
+    public List<Trains> deleteById(@PathVariable("id") int id) {
         return trainService.deleteById(id);
     }
 
     @PutMapping(value = "/traindetails/update/{id}")
-    public Train updateByTrainId(@PathVariable("id") int id, @RequestBody Train train) {
+    public Trains updateByTrainId(@PathVariable("id") int id, @RequestBody Trains train) {
         return trainService.updateById(id, train);
+    }
+
+    @GetMapping(value = "/traindetails/getBySourceAndDest")
+    public List<Trains> getBySourceAndDest(@RequestParam("source")String source,@RequestParam("destination")String dest ) {
+        return trainService.getBySourceAndDest(source,dest);
     }
 
     // By Route
@@ -118,6 +123,11 @@ public class AdminController {
         return routeDetailsService.deleteById(id);
     }
 
+    @GetMapping(value = "/route-details/gettrain")
+    public List<RouteDetails> getByTrainName(@RequestParam("trainName") String trainName) {
+        return routeDetailsService.getByTrainName(trainName);
+    }
+
     // train status
     @PostMapping(value = "/trainstatus/post")
     public TrainStatus saveTrainStatus(@RequestBody TrainStatus trainStatus) {
@@ -134,6 +144,10 @@ public class AdminController {
     public List<TrainStatus> deleteStatus(@PathVariable("id") int id) {
         return statusService.deleteById(id);
     }
+
+  
+
+
     // By role
 
     @PostMapping(value = "/post")

@@ -26,4 +26,9 @@ public class RouteDetailsService {
         return getAll();
     }
 
+    public List<RouteDetails> getByTrainName(String trainName) {
+   return routeDetailsRepo.findByTrainName(trainName);
+
+    }
+
 }
