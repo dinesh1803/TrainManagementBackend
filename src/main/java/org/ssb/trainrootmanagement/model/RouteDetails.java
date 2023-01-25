@@ -1,6 +1,10 @@
 package org.ssb.trainrootmanagement.model;
 
-import java.sql.Time;
+
+
+
+
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +16,6 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 import lombok.Data;
@@ -35,5 +38,9 @@ public class RouteDetails {
     private Station station;
 
     private String scheduleTime;
+
+    private String haltTime;
+
+
 
 }

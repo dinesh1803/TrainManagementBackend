@@ -30,10 +30,10 @@ public class Route {
   private String routeName;
 
   @Column(nullable = false)
-  private String source;
+  public String source;
 
   @Column(nullable = false)
-  private String destination;
+  public String destination;
 
 
   @OneToMany(mappedBy = "route")

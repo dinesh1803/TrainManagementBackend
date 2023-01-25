@@ -16,6 +16,7 @@ import org.ssb.trainrootmanagement.model.Route;
 import org.ssb.trainrootmanagement.model.RouteDetails;
 import org.ssb.trainrootmanagement.model.Station;
 import org.ssb.trainrootmanagement.model.Trains;
+import org.ssb.trainrootmanagement.exception.AlreadyExistException;
 import org.ssb.trainrootmanagement.model.LoginDetails;
 import org.ssb.trainrootmanagement.model.TrainStatus;
 import org.ssb.trainrootmanagement.service.UserService;
@@ -72,7 +73,7 @@ public class AdminController {
 
     // By Route
     @PostMapping(value = "/route/post")
-    public Route saveRoutes(@RequestBody Route route) {
+    public Route saveRoutes(@RequestBody Route route) throws AlreadyExistException {
 
         return routeService.save(route);
     }
