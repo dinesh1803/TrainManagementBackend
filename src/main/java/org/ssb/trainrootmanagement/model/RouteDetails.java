@@ -27,7 +27,7 @@ public class RouteDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int trainScheduleId;
 
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -39,7 +39,11 @@ public class RouteDetails {
 
     private String scheduleTime;
 
+    private int Kilometers;
+
     private String haltTime;
+
+    private int platformNumber;
 
 
 

@@ -26,7 +26,7 @@ public class RouteDetailsService {
         return getAll();
     }
 
-    public List<RouteDetails> getByTrainName(String trainName) {
+    public List<RouteDetails> getByTrainName(int trainName) {
    return routeDetailsRepo.findByTrainName(trainName);
 
     }

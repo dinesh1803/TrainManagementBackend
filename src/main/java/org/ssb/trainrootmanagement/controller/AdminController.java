@@ -125,7 +125,7 @@ public class AdminController {
     }
 
     @GetMapping(value = "/route-details/gettrain")
-    public List<RouteDetails> getByTrainName(@RequestParam("trainName") String trainName) {
+    public List<RouteDetails> getByTrainName(@RequestParam("trainName") int trainName) {
         return routeDetailsService.getByTrainName(trainName);
     }
 
