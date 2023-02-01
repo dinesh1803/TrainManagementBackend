@@ -17,6 +17,8 @@ public class StationService {
     }
 
     public Station save(Station station) {
+        station.setStationName(station.getStationName().toUpperCase());
+        station.setStationCode(station.getStationCode().toUpperCase());
         return stationRepo.save(station);
     }
 

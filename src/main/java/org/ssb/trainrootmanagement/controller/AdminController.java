@@ -1,6 +1,8 @@
 package org.ssb.trainrootmanagement.controller;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -16,6 +18,7 @@ import org.ssb.trainrootmanagement.model.Route;
 import org.ssb.trainrootmanagement.model.RouteDetails;
 import org.ssb.trainrootmanagement.model.Station;
 import org.ssb.trainrootmanagement.model.Trains;
+import org.ssb.trainrootmanagement.Dto.TrainCountDto;
 import org.ssb.trainrootmanagement.exception.AlreadyExistException;
 import org.ssb.trainrootmanagement.model.LoginDetails;
 import org.ssb.trainrootmanagement.model.TrainStatus;
@@ -128,6 +131,12 @@ public class AdminController {
     public List<RouteDetails> getByTrainName(@RequestParam("trainName") int trainName) {
         return routeDetailsService.getByTrainName(trainName);
     }
+
+    @GetMapping(value = "/route-details/gettrainid")
+    public Set<Trains> getByTrainId(@RequestParam("source") int source,@RequestParam("dest") int dest) {
+        return routeDetailsService.getByTrainId(source,dest);
+    }
+    
 
     // train status
     @PostMapping(value = "/trainstatus/post")

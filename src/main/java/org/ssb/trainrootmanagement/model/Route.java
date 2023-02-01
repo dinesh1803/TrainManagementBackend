@@ -14,12 +14,15 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "route")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Route {
 
   @Id
@@ -34,7 +37,6 @@ public class Route {
 
   @Column(nullable = false)
   public String destination;
-
 
   @OneToMany(mappedBy = "route")
   @JsonIgnore

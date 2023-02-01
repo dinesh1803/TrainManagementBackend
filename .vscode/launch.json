@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TrainmanagementsystemApplication<librarymanagementsystem>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "org.ssb.trainrootmanagement.TrainmanagementsystemApplication",
+            "projectName": "librarymanagementsystem",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
