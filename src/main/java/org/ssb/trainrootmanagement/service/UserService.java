@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
-//import org.ssb.trainrootmanagement.config.UserPrinciple;
 import org.ssb.trainrootmanagement.model.LoginDetails;
 import org.ssb.trainrootmanagement.repository.UserRepo;
 
