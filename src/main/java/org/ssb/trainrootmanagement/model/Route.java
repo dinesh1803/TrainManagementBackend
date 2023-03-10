@@ -38,8 +38,5 @@ public class Route {
   @Column(nullable = false)
   public String destination;
 
-  @OneToMany(mappedBy = "route")
-  @JsonIgnore
-  private List<Trains> train;
 
 }

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.ssb.trainrootmanagement.exception.AlreadyExistException;
 import org.ssb.trainrootmanagement.model.Trains;
 import org.ssb.trainrootmanagement.repository.TrainRepo;
 
@@ -43,7 +44,10 @@ public class TrainService {
 
     }
 
-    public List<Trains> getBySourceAndDest(String source, String dest) {
+    public List<Trains> getBySourceAndDest(String source, String dest) throws AlreadyExistException {
+        if(source.equals(dest)){
+            throw new AlreadyExistException("select different destination");
+        }
         return trainRepo.findBySourceAndDest(source, dest);
     }
 

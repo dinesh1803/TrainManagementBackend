@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -70,7 +71,7 @@ public class AdminController {
     }
 
     @GetMapping(value = "/traindetails/getBySourceAndDest")
-    public List<Trains> getBySourceAndDest(@RequestParam("source")String source,@RequestParam("destination")String dest ) {
+    public List<Trains> getBySourceAndDest(@RequestParam("source")String source,@RequestParam("destination")String dest ) throws AlreadyExistException {
         return trainService.getBySourceAndDest(source,dest);
     }
 
@@ -159,11 +160,17 @@ public class AdminController {
 
 
     // By role
-
-    @PostMapping(value = "/post")
+    // @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PostMapping(value = "signup")
     public LoginDetails saveUser(@RequestBody LoginDetails user) {
         return userService.save(user);
     }
+
+    @PostMapping(value="/login")
+    public String login(@RequestBody LoginDetails user) throws AlreadyExistException {
+        return userService.login(user);
+    }
+
 
     @GetMapping(value = "/get")
     public List<LoginDetails> getAllUser() {
